@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo SUNSU SKIN</title>
+<meta name="description" content="Skincare coreano y aparatos faciales en Caracas. Precios y pedidos por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marielmojicah-eng.github.io/sunsu-catalogo/">
+<meta property="og:title" content="Catálogo SUNSU SKIN 순수">
+<meta property="og:description" content="Skincare coreano y aparatos faciales. Caracas y envíos a toda Venezuela.">
+<meta property="og:image" content="https://marielmojicah-eng.github.io/sunsu-catalogo/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F1E9">
+<link rel="icon" type="image/png" href="img/icono.png">
+<link rel="apple-touch-icon" href="img/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:ital,wght@1,400;1,500&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --crema:#F6F1E9;
+  --pozo:#EDE4D7;
+  --papel:#FBF8F3;
+  --moca:#4A3B32;
+  --moca-2:#76665B;
+  --moca-3:#A08F83;
+  --linea:#E2D7C9;
+  --coral:#D9836B;
+  --coral-suave:#E8A08A;
+  --coral-texto:#A85A45;
+  --rosa-linea:#C99091;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Playfair Display","Bodoni MT",Didot,Georgia,serif;
+  --kr:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--crema);color:var(--moca);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px}
+
+.envoltura{max-width:1120px;margin:0 auto;padding:0 18px}
+
+/* Portada */
+.portada{position:relative;overflow:hidden;padding:22px 0 30px}
+.barra-sup{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{width:112px;height:auto}
+.ig{font-size:13px;font-weight:500;text-decoration:none;color:var(--moca-2);padding:8px 0}
+.ig:hover{color:var(--coral-texto)}
+.marca-agua{position:absolute;right:-18px;top:74px;font-family:var(--kr);font-weight:300;font-size:clamp(150px,34vw,330px);line-height:1;color:#EDE3D5;letter-spacing:-.04em;pointer-events:none;user-select:none;z-index:0}
+.portada-txt{position:relative;z-index:1;max-width:640px;margin-top:40px}
+.antetitulo{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--moca-2);margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.antetitulo::before{content:"";width:26px;height:1.5px;background:var(--rosa-linea)}
+h1{font-weight:700;font-size:clamp(38px,9.5vw,68px);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1 em{font-family:var(--serif);font-weight:500;font-style:italic;color:var(--coral);letter-spacing:-.01em}
+.bajada{font-size:16px;color:var(--moca-2);max-width:46ch;margin:18px 0 0}
+.bajada strong{color:var(--moca);font-weight:600}
+.datos{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:0;margin:28px 0 0;border-top:1px solid var(--linea);max-width:760px}
+.dato{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--linea);font-size:14px}
+.dato dt{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--moca-3);padding-top:3px}
+.dato dd{margin:0}
+@media (min-width:760px){
+  .datos{grid-template-columns:repeat(3,1fr);gap:0 28px}
+  .dato{grid-template-columns:1fr;gap:4px}
+}
+
+/* Pasos */
+.pasos{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.pasos-lista{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;max-width:1120px;margin:0 auto;scrollbar-width:none}
+.pasos-lista::-webkit-scrollbar{display:none}
+.paso-chip{flex:none;display:inline-flex;align-items:baseline;gap:7px;text-decoration:none;font-size:13.5px;font-weight:500;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid var(--linea);background:var(--papel);color:var(--moca-2);transition:background .2s,color .2s,border-color .2s}
+.paso-chip span{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--coral)}
+.paso-chip:hover{border-color:var(--moca-3);color:var(--moca)}
+.paso-chip.activo{background:var(--moca);border-color:var(--moca);color:var(--crema)}
+.paso-chip.activo span{color:var(--coral-suave)}
+
+/* Secciones */
+main{padding-bottom:40px}
+.seccion{padding:46px 0 10px}
+.seccion-cab{display:grid;grid-template-columns:auto 1fr;gap:0 16px;align-items:end;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--linea)}
+.numeral{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(64px,13vw,96px);line-height:.78;color:var(--coral);grid-row:span 2}
+.seccion-cab h2{margin:0;font-size:clamp(24px,5.4vw,32px);font-weight:600;letter-spacing:-.015em;line-height:1.1}
+.seccion-cab p{margin:4px 0 0;color:var(--moca-2);font-size:14px;max-width:52ch}
+
+.rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px}
+@media (min-width:720px){.rejilla{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 22px}}
+@media (min-width:1040px){.rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.tarjeta{display:flex;flex-direction:column;min-width:0}
+.pozo{position:relative;aspect-ratio:1/1;background:var(--pozo);border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pozo img{width:100%;height:100%;object-fit:contain;padding:9%;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tarjeta:hover .pozo img{transform:scale(1.035)}
+.ficha{flex:1;display:flex;flex-direction:column;padding-top:12px}
+.f-marca{margin:0;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--moca-3)}
+.f-nombre{margin:3px 0 0;font-size:15px;font-weight:500;line-height:1.3;letter-spacing:-.005em;overflow-wrap:anywhere}
+.f-desc{margin:6px 0 0;font-size:13px;line-height:1.5;color:var(--moca-2)}
+.f-medida{margin:6px 0 0;font-size:11.5px;letter-spacing:.04em;color:var(--moca-3)}
+.f-precio{margin:12px 0 0;font-size:21px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.f-precio small{font-size:12px;font-weight:500;color:var(--moca-3);letter-spacing:0;margin-left:2px}
+.acciones{display:flex;gap:6px;margin-top:12px}
+.pedir{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 10px;border-radius:999px;background:var(--moca);color:var(--crema);text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .2s}
+.pedir:hover{background:#34291f}
+.sumar{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--moca-3);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1;transition:background .2s,border-color .2s,color .2s}
+.sumar:hover{border-color:var(--moca);background:var(--papel)}
+.sumar[aria-pressed="true"]{background:var(--coral-suave);border-color:var(--coral-suave);color:var(--moca)}
+.sumar svg{width:18px;height:18px}
+
+.chip{position:absolute;top:10px;left:10px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--papel);color:var(--coral-texto);padding:4px 9px;border-radius:999px;z-index:2}
+
+/* Etiqueta tipografica cuando no hay foto */
+.etiqueta{flex-direction:column;gap:8px;padding:14%;text-align:center;background:var(--pozo)}
+.etiqueta::after{content:"";position:absolute;inset:9px;border:1px solid #DCCFBF;border-radius:9px;pointer-events:none}
+.e-marca{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--moca-2)}
+.e-nombre{font-family:var(--serif);font-style:italic;font-size:clamp(19px,4.6vw,25px);line-height:1.1;color:var(--moca)}
+.e-linea{width:34px;height:1.5px;background:var(--rosa-linea)}
+.e-det{font-size:10.5px;letter-spacing:.08em;color:var(--moca-2)}
+
+/* Destacado: el booster */
+.tarjeta.destacado{grid-column:1/-1}
+@media (min-width:560px){
+  .tarjeta.destacado{flex-direction:row;gap:22px;align-items:stretch}
+  .tarjeta.destacado .pozo{width:52%;flex:none}
+  .tarjeta.destacado .ficha{padding-top:4px;justify-content:center}
+}
+@media (min-width:720px){.tarjeta.destacado{grid-column:span 2}}
+.destacado .f-nombre{font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.015em}
+.destacado .f-desc{font-size:14px}
+.destacado .f-precio{font-size:28px}
+.destacado .f-cinta{margin:0 0 8px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--coral-texto)}
+
+/* Cierre */
+.cierre{margin-top:56px;padding:34px 0 40px;border-top:1px solid var(--linea);display:grid;gap:26px}
+@media (min-width:760px){.cierre{grid-template-columns:1.1fr 1fr;align-items:start}}
+.cierre h2{margin:0;font-size:clamp(26px,5.6vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+.cierre h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--coral)}
+.cierre p{color:var(--moca-2);margin:10px 0 18px;max-width:44ch}
+.boton-grande{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--moca);color:var(--crema);text-decoration:none;font-weight:500}
+.boton-grande:hover{background:#34291f}
+.boton-grande svg{width:19px;height:19px}
+.letra-chica{display:grid;gap:12px;font-size:13px;color:var(--moca-2)}
+.letra-chica div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--linea)}
+.letra-chica dt{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--moca-3);padding-top:2px}
+.letra-chica dd{margin:0}
+.firma{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:18px 0 30px;font-size:12px;color:var(--moca-3);border-top:1px solid var(--linea)}
+.firma .kr{font-family:var(--kr);font-weight:300;font-size:14px;color:var(--moca-2)}
+
+/* Barra de pedido */
+.pedido{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+.pedido-caja{max-width:640px;margin:0 auto;background:var(--moca);color:var(--crema);border-radius:20px;padding:12px 12px 12px 18px;box-shadow:0 14px 40px -12px rgba(74,59,50,.55);display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center}
+.p-resumen{font-size:14px;line-height:1.3}
+.p-resumen strong{font-weight:600;font-variant-numeric:tabular-nums}
+.p-envio{display:block;font-size:12px;color:#D8CBBE;margin-top:3px}
+.p-envio.ok{color:var(--coral-suave)}
+.p-barra{grid-column:1/-1;height:3px;border-radius:3px;background:rgba(246,241,233,.18);overflow:hidden;order:3}
+.p-barra i{display:block;height:100%;width:0;background:var(--coral-suave);transition:width .4s}
+.p-acciones{display:flex;align-items:center;gap:4px}
+.p-vaciar{background:none;border:0;color:#D8CBBE;font-size:12.5px;cursor:pointer;padding:10px 8px;text-decoration:underline;text-underline-offset:3px}
+.p-vaciar:hover{color:var(--crema)}
+.p-pedir{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--coral-suave);color:var(--moca);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.p-pedir:hover{background:#EDB29F}
+.p-pedir svg{width:17px;height:17px}
+body.con-pedido main{padding-bottom:130px}
+@media (max-width:420px){
+  .p-vaciar{display:none}
+  .p-pedir{padding:0 14px;font-size:13.5px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="portada">
+  <div class="envoltura">
+    <div class="barra-sup">
+      <img class="logo" src="img/logo.png" alt="SUNSU SKIN · 순수 · Venezuela" width="480" height="366">
+      <a class="ig" href="https://instagram.com/sunsuskin.ve" target="_blank" rel="noopener">@sunsuskin.ve</a>
+    </div>
+    <div class="marca-agua" aria-hidden="true">순수</div>
+    <div class="portada-txt">
+      <p class="antetitulo">Catálogo · septiembre 2026</p>
+      <h1>Tu skincare, <em>en orden.</em></h1>
+      <p class="bajada">Skincare coreano y aparatos faciales.</p>
+    </div>
+    <dl class="datos">
+      <div class="dato"><dt>Caracas</dt><dd>Delivery gratis desde $100. Por debajo, $4.</dd></div>
+      <div class="dato"><dt>Interior</dt><dd>MRW o Zoom, de 2 a 4 días hábiles. El envío se paga al retirar.</dd></div>
+      <div class="dato"><dt>Pago</dt><dd>Efectivo, PayPal o pago móvil a tasa euro BCV del día.</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="pasos" aria-label="Pasos de la rutina">
+  <div class="pasos-lista" id="pasos"></div>
+</nav>
+
+<main class="envoltura" id="catalogo"></main>
+
+<footer class="envoltura">
+  <section class="cierre">
+    <div>
+      <h2>¿No sabes cuál es <em>para ti?</em></h2>
+      <p>Cuéntanos qué te gustaría mejorar y te ayudamos a armar tu rutina, paso por paso.</p>
+      <a class="boton-grande" id="ayuda" target="_blank" rel="noopener"></a>
+    </div>
+    <dl class="letra-chica">
+      <div><dt>Precios</dt><dd>A la tasa euro del BCV del día.</dd></div>
+      <div><dt>Originales</dt><dd>Productos coreanos originales.</dd></div>
+      <div><dt>Envíos</dt><dd>Delivery en Caracas; MRW o Zoom al resto de Venezuela.</dd></div>
+    </dl>
+  </section>
+  <div class="firma">
+    <span>SUNSU SKIN · Caracas, Venezuela</span>
+    <span class="kr">순수</span>
+  </div>
+</footer>
+
+<div class="pedido" id="pedido" hidden>
+  <div class="pedido-caja">
+    <div class="p-resumen"><strong id="p-cant"></strong> · <strong id="p-total"></strong><span class="p-envio" id="p-envio"></span></div>
+    <div class="p-acciones">
+      <button class="p-vaciar" id="p-vaciar" type="button">Vaciar</button>
+      <a class="p-pedir" id="p-pedir" target="_blank" rel="noopener"></a>
+    </div>
+    <div class="p-barra" aria-hidden="true"><i id="p-barra"></i></div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var WA = "584123866227";
+var ENVIO_GRATIS = 100;
+
+var PASOS = [
+  {id:"limpia",  n:1, t:"Limpia",   d:"Doble limpieza: primero el aceite, que se lleva maquillaje y protector; después la espuma."},
+  {id:"prepara", n:2, t:"Prepara",  d:"Hidratación ligera para que la piel reciba mejor lo que viene después."},
+  {id:"trata",   n:3, t:"Trata",    d:"Sérum, mascarilla y contorno de ojos: aquí está lo que más trabaja."},
+  {id:"potencia",n:4, t:"Potencia", d:"Aparatos que ayudan a que tu rutina rinda más. Siempre sobre gel o sérum, nunca en seco."},
+  {id:"hidrata", n:5, t:"Hidrata",  d:"Cremas para cerrar la rutina y sellar la hidratación."},
+  {id:"protege", n:6, t:"Protege",  d:"El paso que no se salta, ni con el cielo nublado."}
+];
+
+var P = [
+  {id:"anua-aceite", paso:"limpia", marca:"Anua", nombre:"Heartleaf Pore Control Cleansing Oil", medida:"200 ml", precio:25, stock:2, img:"img/anua-aceite.jpg",
+   desc:"Primer paso de la doble limpieza. Se lleva el maquillaje y el protector sin resecar."},
+  {id:"anua-espuma", paso:"limpia", marca:"Anua", nombre:"Heartleaf Succinic Moisture Cleansing Foam", medida:"150 ml", precio:25, stock:4, img:"img/anua-espuma.jpg",
+   desc:"Segundo paso: espuma suave que limpia sin dejar la piel tirante."},
+
+  {id:"aloe", paso:"prepara", marca:"Holika Holika", nombre:"Aloe 99% Soothing Gel", medida:"250 ml", precio:28, stock:2, img:"img/aloe.jpg",
+   desc:"Gel calmante e hidratante. También sirve de gel conductor para los aparatos."},
+  {id:"anua-bruma", paso:"prepara", marca:"Anua", nombre:"PDRN Hyaluronic Acid Capsule Mist", medida:"100 ml", precio:40, stock:2, img:"img/anua-bruma.jpg",
+   desc:"Bruma con cápsulas de PDRN y ácido hialurónico. Hidrata a cualquier hora, incluso sobre el maquillaje."},
+
+  {id:"anua-serum", paso:"trata", marca:"Anua", nombre:"PDRN Hyaluronic Acid Capsule 100 Serum", medida:"30 ml", precio:40, stock:4, img:"img/anua-serum.jpg",
+   desc:"Microcápsulas con PDRN, ácido hialurónico y colágeno. Ayuda a que la piel se vea más jugosa."},
+  {id:"anua-mascarilla", paso:"trata", marca:"Anua", nombre:"PDRN Capsule 100 Serum Mask", medida:"1 mascarilla", precio:4, stock:6, img:"img/anua-mascarilla.jpg",
+   desc:"Mascarilla de tela con el sérum PDRN, para los días en que la piel pide más hidratación."},
+  {id:"skintific", paso:"trata", marca:"SKINTIFIC", nombre:"360° Crystal Massager Eye Cream", medida:"20 g", precio:38, stock:2, img:"img/skintific.jpg",
+   desc:"Contorno de ojos con punta masajeadora que gira 360°. Fresca al aplicarla."},
+  {id:"boj", paso:"trata", marca:"Beauty of Joseon", nombre:"Revive Eye Serum: Ginseng + Retinal", medida:"30 ml", precio:24, stock:2, img:"img/boj.jpg",
+   desc:"Ginseng y retinal para el contorno de ojos. Úsalo de noche."},
+
+  {id:"medicube", paso:"potencia", marca:"medicube", nombre:"AGE-R Booster Pro Mini", medida:"Recargable · versión en inglés", precio:145, stock:3, img:"img/medicube.jpg", destacado:true,
+   cinta:"El paso que potencia todo lo demás",
+   desc:"El booster coreano en tamaño de bolsillo. Ayuda a que tu sérum y tu crema rindan más. Se usa sobre gel o sérum, nunca en seco."},
+  {id:"electro", paso:"potencia", marca:"Aparato", nombre:"Electroporador 5 en 1", medida:"Radiofrecuencia · mesoterapia · 5 luces LED", precio:45, stock:3, img:"img/electroporador.jpg",
+   desc:"Radiofrecuencia en casa. La mesoterapia ayuda a que tu sérum entre en la piel en vez de quedarse encima."},
+  {id:"mas-led", paso:"potencia", marca:"Aparato", nombre:"Masajeador de cuello y rostro 7 colores", medida:"Luz LED · vibración · recargable por USB", precio:20, stock:1, img:"img/masajeador-led.jpg",
+   desc:"Luz LED y vibración para cuello y rostro, con 7 modos y pantalla."},
+  {id:"mas-rec", paso:"potencia", marca:"Aparato", nombre:"Masajeador de cuello recargable", medida:"Recargable", precio:20, stock:1, img:"img/masajeador-recargable.jpg",
+   desc:"Para relajar cuello y mandíbula al final del día."},
+  {id:"mas-tensor", paso:"potencia", marca:"Aparato", nombre:"Masajeador tensor facial", medida:"Multifuncional", precio:20, stock:1, img:"img/masajeador-tensor.jpg",
+   desc:"Masajeador facial compacto y fácil de usar, para tus cinco minutos de la mañana."},
+
+  {id:"medicube-crema", paso:"hidrata", marca:"medicube", nombre:"PDRN Pink Collagen Capsule Cream", medida:"55 g", precio:35, stock:2, img:"img/medicube-crema.jpg",
+   desc:"Crema en gel con cápsulas rosadas de PDRN y colágeno, y niacinamida al 5%."},
+  {id:"althea", paso:"hidrata", marca:"Dr. Althea", nombre:"345 Relief Cream", medida:"50 ml", precio:45, stock:4, img:"img/althea.jpg",
+   desc:"3 ingredientes calmantes, 4 nutritivos y 5 relajantes. Pensada para piel sensible; va bien antes del maquillaje."},
+  {id:"anua-guasha", paso:"hidrata", marca:"Anua", nombre:"Collagen Retinol Refining Gua Sha Cream", medida:"Con punta gua sha", precio:58, stock:4, img:"img/anua-guasha.jpg", oculto:true,
+   desc:"Colágeno y retinol con una punta para masajear mientras la aplicas. De noche."},
+  {id:"anua-crema", paso:"hidrata", marca:"Anua", nombre:"PDRN Hyaluronic Acid 100 Moisturizing Cream", medida:"30 ml", precio:26, stock:2, img:"img/anua-crema.jpg",
+   desc:"La crema hidratante de la línea PDRN, para cerrar la rutina del sérum y la bruma."},
+  {id:"medipeel", paso:"hidrata", marca:"MEDIPEEL", nombre:"Peptide 9 Volume & Tension Tox Cream Pro", medida:"50 g", precio:30, stock:2, img:"img/medipeel.jpg",
+   desc:"Péptidos, colágeno hidrolizado, ectoína y ácido hialurónico. Ayuda a que la piel se vea más firme."},
+  {id:"cosrx", paso:"hidrata", marca:"COSRX", nombre:"The Retinol 0.1 Cream", medida:"20 ml", precio:34, stock:2, img:"img/cosrx.jpg",
+   desc:"Retinol suave para empezar. Solo de noche, con protector al día siguiente y nunca junto con el booster."},
+  {id:"aplb", paso:"hidrata", marca:"APLB", nombre:"Glutathione Niacinamide Facial Cream", medida:"55 ml", precio:20, stock:2, img:"img/aplb.jpg",
+   desc:"Glutatión y niacinamida para un tono que se ve más parejo."},
+  {id:"mqny", paso:"hidrata", marca:"MQNY", nombre:"Collagen Vita Multi Balm", medida:"En barra", precio:22, stock:3, oculto:true,
+   etiqueta:["MQNY","Collagen Vita","Multi balm"],
+   desc:"Bálsamo en barra con colágeno y vitaminas. Para llevar en la cartera y retocar."},
+
+  {id:"purito", paso:"protege", marca:"Purito", nombre:"Daily Soft Touch Sunscreen SPF50+ PA++++", medida:"60 ml", precio:30, stock:2, img:"img/purito.jpg",
+   desc:"Protector de acabado suave, sin sensación grasosa. Para todos los días."},
+  {id:"purito-barra", paso:"protege", marca:"Purito", nombre:"Daily Soft Touch Sunscreen Stick SPF50+", medida:"20 g", precio:27, stock:2, img:"img/purito-barra.jpg",
+   desc:"La versión en barra, para retocar el protector encima del maquillaje."}
+].filter(function(p){ return !p.oculto; });
+
+var ICONO_WA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3a8.5 8.5 0 1 1 15.5-4.6z"/><path d="M9 8.6c.2 2.9 3 5.6 5.9 5.9l1.1-1.3-1.9-.9-.8.8c-1-.4-2.2-1.5-2.6-2.6l.8-.8-.9-1.9z" fill="currentColor" stroke="none"/></svg>';
+var ICONO_MAS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+var ICONO_OK  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+function wa(txt){return "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);}
+function nombreCompleto(p){return (p.marca==="Aparato"?"":p.marca+" ")+p.nombre;}
+
+var pedido = [];
+try{ pedido = JSON.parse(localStorage.getItem("sunsu-pedido")||"[]").filter(function(id){return P.some(function(p){return p.id===id;});}); }catch(e){ pedido = []; }
+function guardar(){ try{ localStorage.setItem("sunsu-pedido", JSON.stringify(pedido)); }catch(e){} }
+
+function tarjeta(p){
+  var foto = p.img
+    ? '<img src="'+p.img+'" alt="'+esc(nombreCompleto(p))+'" loading="lazy" width="600" height="600">'
+    : '<span class="e-marca">'+esc(p.etiqueta[0])+'</span><span class="e-nombre">'+esc(p.etiqueta[1])+'</span><span class="e-linea"></span><span class="e-det">'+esc(p.etiqueta[2])+'</span>';
+  var chip = p.stock===1 ? '<span class="chip">Última unidad</span>' : '';
+  var enPedido = pedido.indexOf(p.id)>-1;
+  var msg = "¡Hola! Me interesa el "+nombreCompleto(p)+" ($"+p.precio+"). ¿Está disponible?";
+  return '<article class="tarjeta'+(p.destacado?' destacado':'')+'">'+
+    '<div class="pozo'+(p.img?'':' etiqueta')+'">'+chip+foto+'</div>'+
+    '<div class="ficha">'+
+      (p.cinta?'<p class="f-cinta">'+esc(p.cinta)+'</p>':'')+
+      '<p class="f-marca">'+esc(p.marca)+'</p>'+
+      '<h3 class="f-nombre">'+esc(p.nombre)+'</h3>'+
+      '<p class="f-desc">'+esc(p.desc)+'</p>'+
+      '<p class="f-medida">'+esc(p.medida)+'</p>'+
+      '<p class="f-precio">$'+p.precio+'<small>USD</small></p>'+
+      '<div class="acciones">'+
+        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener">Pedir ahora</a>'+
+        '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
+      '</div>'+
+    '</div>'+
+  '</article>';
+}
+
+function pintarCatalogo(){
+  document.getElementById("pasos").innerHTML = PASOS.map(function(s){
+    return '<a class="paso-chip" href="#'+s.id+'" data-paso="'+s.id+'"><span>'+s.n+'</span>'+s.t+'</a>';
+  }).join("");
+  document.getElementById("catalogo").innerHTML = PASOS.map(function(s){
+    var items = P.filter(function(p){return p.paso===s.id;});
+    return '<section class="seccion" id="'+s.id+'" aria-labelledby="t-'+s.id+'">'+
+      '<div class="seccion-cab"><span class="numeral" aria-hidden="true">'+s.n+'</span>'+
+      '<h2 id="t-'+s.id+'">'+s.t+'</h2><p>'+s.d+'</p></div>'+
+      '<div class="rejilla">'+items.map(tarjeta).join("")+'</div></section>';
+  }).join("");
+  document.getElementById("ayuda").href = wa("¡Hola! Vi el catálogo de SUNSU. ¿Me ayudas a elegir?");
+  document.getElementById("ayuda").innerHTML = ICONO_WA+"Escríbenos por WhatsApp";
+  document.getElementById("p-pedir").innerHTML = ICONO_WA+"Pedir por WhatsApp";
+}
+
+function pintarPedido(){
+  var items = P.filter(function(p){return pedido.indexOf(p.id)>-1;});
+  var total = items.reduce(function(a,p){return a+p.precio;},0);
+  var caja = document.getElementById("pedido");
+  caja.hidden = items.length===0;
+  document.body.classList.toggle("con-pedido", items.length>0);
+  if(!items.length) return;
+  document.getElementById("p-cant").textContent = items.length+(items.length===1?" producto":" productos");
+  document.getElementById("p-total").textContent = "$"+total;
+  var envio = document.getElementById("p-envio");
+  if(total>=ENVIO_GRATIS){ envio.textContent="Delivery gratis en Caracas"; envio.classList.add("ok"); }
+  else { envio.textContent="Te faltan $"+(ENVIO_GRATIS-total)+" para el delivery gratis en Caracas"; envio.classList.remove("ok"); }
+  document.getElementById("p-barra").style.width = Math.min(100,total/ENVIO_GRATIS*100)+"%";
+  var lineas = items.map(function(p){return "• "+nombreCompleto(p)+" ($"+p.precio+")";}).join("\n");
+  document.getElementById("p-pedir").href = wa("¡Hola! Quiero hacer este pedido:\n"+lineas+"\nTotal: $"+total+"\n¿Está disponible?");
+}
+
+function alternar(id, btn){
+  var i = pedido.indexOf(id);
+  if(i>-1) pedido.splice(i,1); else pedido.push(id);
+  guardar();
+  var p = P.filter(function(x){return x.id===id;})[0];
+  var en = pedido.indexOf(id)>-1;
+  btn.setAttribute("aria-pressed", en);
+  btn.setAttribute("aria-label", (en?"Quitar del pedido":"Agregar al pedido")+": "+nombreCompleto(p));
+  btn.innerHTML = en?ICONO_OK:ICONO_MAS;
+  pintarPedido();
+}
+
+pintarCatalogo();
+pintarPedido();
+
+document.getElementById("catalogo").addEventListener("click", function(e){
+  var b = e.target.closest(".sumar");
+  if(b) alternar(b.dataset.id, b);
+});
+document.getElementById("p-vaciar").addEventListener("click", function(){
+  pedido = []; guardar();
+  document.querySelectorAll(".sumar").forEach(function(b){
+    b.setAttribute("aria-pressed","false"); b.innerHTML = ICONO_MAS;
+    b.setAttribute("aria-label", b.getAttribute("aria-label").replace("Quitar del pedido","Agregar al pedido"));
+  });
+  pintarPedido();
+});
+
+if("IntersectionObserver" in window){
+  var chips = {};
+  document.querySelectorAll(".paso-chip").forEach(function(c){ chips[c.dataset.paso]=c; });
+  var obs = new IntersectionObserver(function(ents){
+    ents.forEach(function(en){
+      if(en.isIntersecting){
+        Object.keys(chips).forEach(function(k){ chips[k].classList.toggle("activo", k===en.target.id); });
+        var c = chips[en.target.id];
+        if(c && c.scrollIntoView){ var l=c.parentNode; l.scrollTo({left:c.offsetLeft-18, behavior:"smooth"}); }
+      }
+    });
+  }, {rootMargin:"-45% 0px -50% 0px"});
+  document.querySelectorAll(".seccion").forEach(function(s){ obs.observe(s); });
+}
+})();
+</script>
+</body>
+</html>
