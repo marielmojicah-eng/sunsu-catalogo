@@ -171,6 +171,28 @@ body.con-pedido main{padding-bottom:130px}
   .p-pedir{padding:0 14px;font-size:13.5px}
 }
 
+/* Kits */
+.kits-cab{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--linea)}
+.kits-cab h2{margin:0;font-size:clamp(26px,6vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+.kits-cab h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--coral)}
+.kits-cab p{margin:6px 0 0;color:var(--moca-2);font-size:14px;max-width:52ch}
+.rejilla-kits{display:grid;grid-template-columns:1fr;gap:22px}
+@media (min-width:720px){.rejilla-kits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kit{display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linea);border-radius:18px;overflow:hidden}
+.kit-foto{position:relative;aspect-ratio:4/3;background:var(--pozo)}
+.kit-foto img{width:100%;height:100%;object-fit:cover}
+.kit-ficha{flex:1;display:flex;flex-direction:column;padding:18px 18px 20px}
+.kit-nombre{margin:3px 0 0;font-size:22px;font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.kit-lista{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.kit-lista li{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--crema);border:1px solid var(--linea);color:var(--moca-2)}
+.kit-lista li.kit-extra{background:var(--moca);border-color:var(--moca);color:var(--crema)}
+.kit-precio{margin:18px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;font-size:30px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.kit-precio small{font-size:12px;font-weight:500;color:var(--moca-3);letter-spacing:0;margin-left:-6px}
+.kit-antes{font-size:13px;font-weight:400;color:var(--moca-2);letter-spacing:0}
+.kit-ahorro{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-texto);background:var(--crema);border:1px solid var(--linea);padding:4px 9px;border-radius:999px}
+.kit-envio{margin:10px 0 0;font-size:12.5px;color:var(--moca-2)}
+.kit .acciones{margin-top:auto;padding-top:18px}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition:none!important}
@@ -241,6 +263,7 @@ var WA = "584123866227";
 var ENVIO_GRATIS = 100;
 
 var PASOS = [
+  {id:"kits", kit:true, t:"Kits", d:"Todo lo que necesitas para empezar, en un solo pedido."},
   {id:"limpia",  n:1, t:"Limpia",   d:"Doble limpieza: primero el aceite, que se lleva maquillaje y protector; después la espuma."},
   {id:"prepara", n:2, t:"Prepara",  d:"Hidratación ligera para que la piel reciba mejor lo que viene después."},
   {id:"trata",   n:3, t:"Trata",    d:"Sérum, mascarilla y contorno de ojos: aquí está lo que más trabaja."},
@@ -249,7 +272,16 @@ var PASOS = [
   {id:"protege", n:6, t:"Protege",  d:"El paso que no se salta, ni con el cielo nublado."}
 ];
 
+var ANUA = ["Aceite limpiador","Espuma limpiadora","Sérum PDRN","Bruma PDRN","Crema PDRN","Mascarilla"];
+
 var P = [
+  {id:"kit-booster", paso:"kits", kit:true, marca:"Rutina Anua", nombre:"Kit con booster", pedidoNombre:"Kit Anua con booster", precio:279, separado:305, img:"img/kit-con-booster.jpg",
+   incluye:ANUA, extra:"Booster medicube AGE-R Mini",
+   desc:"La rutina Anua completa, más el booster de medicube, que ayuda a que tu sérum y tu crema rindan más."},
+  {id:"kit-anua", paso:"kits", kit:true, marca:"Rutina Anua", nombre:"Kit sin booster", pedidoNombre:"Kit Anua sin booster", precio:159, separado:160, img:"img/kit-sin-booster.jpg",
+   incluye:ANUA,
+   desc:"Los seis pasos de la rutina Anua, de la doble limpieza a la hidratación."},
+
   {id:"anua-aceite", paso:"limpia", marca:"Anua", nombre:"Heartleaf Pore Control Cleansing Oil", medida:"200 ml", precio:25, stock:2, img:"img/anua-aceite.jpg",
    desc:"Primer paso de la doble limpieza. Se lleva el maquillaje y el protector sin resecar."},
   {id:"anua-espuma", paso:"limpia", marca:"Anua", nombre:"Heartleaf Succinic Moisture Cleansing Foam", medida:"150 ml", precio:25, stock:4, img:"img/anua-espuma.jpg",
@@ -257,12 +289,12 @@ var P = [
 
   {id:"aloe", paso:"prepara", marca:"Holika Holika", nombre:"Aloe 99% Soothing Gel", medida:"250 ml", precio:28, stock:2, img:"img/aloe.jpg",
    desc:"Gel calmante e hidratante. También sirve de gel conductor para los aparatos."},
-  {id:"anua-bruma", paso:"prepara", marca:"Anua", nombre:"PDRN Hyaluronic Acid Capsule Mist", medida:"100 ml", precio:40, stock:2, img:"img/anua-bruma.jpg",
+  {id:"anua-bruma", paso:"prepara", marca:"Anua", nombre:"PDRN Hyaluronic Acid Capsule Mist", medida:"100 ml", precio:40, stock:4, img:"img/anua-bruma.jpg",
    desc:"Bruma con cápsulas de PDRN y ácido hialurónico. Hidrata a cualquier hora, incluso sobre el maquillaje."},
 
   {id:"anua-serum", paso:"trata", marca:"Anua", nombre:"PDRN Hyaluronic Acid Capsule 100 Serum", medida:"30 ml", precio:40, stock:4, img:"img/anua-serum.jpg",
    desc:"Microcápsulas con PDRN, ácido hialurónico y colágeno. Ayuda a que la piel se vea más jugosa."},
-  {id:"anua-mascarilla", paso:"trata", marca:"Anua", nombre:"PDRN Capsule 100 Serum Mask", medida:"1 mascarilla", precio:4, stock:6, img:"img/anua-mascarilla.jpg",
+  {id:"anua-mascarilla", paso:"trata", marca:"Anua", nombre:"PDRN Capsule 100 Serum Mask", medida:"1 mascarilla", precio:4, stock:12, img:"img/anua-mascarilla.jpg",
    desc:"Mascarilla de tela con el sérum PDRN, para los días en que la piel pide más hidratación."},
   {id:"skintific", paso:"trata", marca:"SKINTIFIC", nombre:"360° Crystal Massager Eye Cream", medida:"20 g", precio:38, stock:2, img:"img/skintific.jpg",
    desc:"Contorno de ojos con punta masajeadora que gira 360°. Fresca al aplicarla."},
@@ -311,7 +343,7 @@ var ICONO_OK  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
 function wa(txt){return "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);}
-function nombreCompleto(p){return (p.marca==="Aparato"?"":p.marca+" ")+p.nombre;}
+function nombreCompleto(p){ if(p.kit) return p.pedidoNombre; return (p.marca==="Aparato"?"":p.marca+" ")+p.nombre;}
 
 var pedido = [];
 try{ pedido = JSON.parse(localStorage.getItem("sunsu-pedido")||"[]").filter(function(id){return P.some(function(p){return p.id===id;});}); }catch(e){ pedido = []; }
@@ -341,12 +373,44 @@ function tarjeta(p){
   '</article>';
 }
 
+function tarjetaKit(p){
+  var enPedido = pedido.indexOf(p.id)>-1;
+  var ahorro = p.separado - p.precio;
+  var msg = "¡Hola! Me interesa el "+nombreCompleto(p)+" ($"+p.precio+"). ¿Está disponible?";
+  var lista = p.incluye.map(function(x){return '<li>'+esc(x)+'</li>';}).join("") +
+    (p.extra ? '<li class="kit-extra">+ '+esc(p.extra)+'</li>' : '');
+  return '<article class="kit">'+
+    '<div class="kit-foto"><span class="chip">Pocas unidades</span>'+
+      '<img src="'+p.img+'" alt="'+esc(nombreCompleto(p))+'" width="1200" height="900"></div>'+
+    '<div class="kit-ficha">'+
+      '<p class="f-marca">'+esc(p.marca)+'</p>'+
+      '<h3 class="kit-nombre">'+esc(p.nombre)+'</h3>'+
+      '<p class="f-desc">'+esc(p.desc)+'</p>'+
+      '<ul class="kit-lista">'+lista+'</ul>'+
+      '<p class="kit-precio">$'+p.precio+'<small>USD</small>'+
+        (ahorro>=5 ? '<span class="kit-antes">Por separado <s>$'+p.separado+'</s></span><span class="kit-ahorro">Ahorras $'+ahorro+'</span>' : '')+
+      '</p>'+
+      '<p class="kit-envio">Delivery gratis en Caracas.</p>'+
+      '<div class="acciones">'+
+        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener">Pedir ahora</a>'+
+        '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
+      '</div>'+
+    '</div>'+
+  '</article>';
+}
+
 function pintarCatalogo(){
   document.getElementById("pasos").innerHTML = PASOS.map(function(s){
-    return '<a class="paso-chip" href="#'+s.id+'" data-paso="'+s.id+'"><span>'+s.n+'</span>'+s.t+'</a>';
+    return '<a class="paso-chip" href="#'+s.id+'" data-paso="'+s.id+'">'+(s.kit?'':'<span>'+s.n+'</span>')+s.t+'</a>';
   }).join("");
   document.getElementById("catalogo").innerHTML = PASOS.map(function(s){
     var items = P.filter(function(p){return p.paso===s.id;});
+    if(s.kit){
+      return '<section class="seccion" id="'+s.id+'" aria-labelledby="t-'+s.id+'">'+
+        '<div class="kits-cab"><p class="antetitulo">Rutina completa</p>'+
+        '<h2 id="t-'+s.id+'">Tu rutina, <em>en un kit.</em></h2><p>'+s.d+'</p></div>'+
+        '<div class="rejilla-kits">'+items.map(tarjetaKit).join("")+'</div></section>';
+    }
     return '<section class="seccion" id="'+s.id+'" aria-labelledby="t-'+s.id+'">'+
       '<div class="seccion-cab"><span class="numeral" aria-hidden="true">'+s.n+'</span>'+
       '<h2 id="t-'+s.id+'">'+s.t+'</h2><p>'+s.d+'</p></div>'+
