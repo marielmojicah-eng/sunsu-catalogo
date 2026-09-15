@@ -10,6 +10,12 @@
 <meta property="og:title" content="Catálogo SUNSU SKIN 순수">
 <meta property="og:description" content="Skincare coreano y aparatos faciales. Caracas y envíos a toda Venezuela.">
 <meta property="og:image" content="https://marielmojicah-eng.github.io/sunsu-catalogo/img/og.jpg">
+<script>
+var PIXEL_ID = "1061088773340394";
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', PIXEL_ID);
+fbq('track', 'PageView');
+</script>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -343,6 +349,7 @@ var ICONO_OK  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
 function wa(txt){return "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);}
+function px(ev, datos){ try{ if(window.fbq) fbq("track", ev, datos||{}); }catch(e){} }
 function nombreCompleto(p){ if(p.kit) return p.pedidoNombre; return (p.marca==="Aparato"?"":p.marca+" ")+p.nombre;}
 
 var pedido = [];
@@ -447,6 +454,7 @@ function alternar(id, btn){
   btn.setAttribute("aria-pressed", en);
   btn.setAttribute("aria-label", (en?"Quitar del pedido":"Agregar al pedido")+": "+nombreCompleto(p));
   btn.innerHTML = en?ICONO_OK:ICONO_MAS;
+  if(en) px("AddToCart", {content_ids:[id], content_name:nombreCompleto(p), content_type:"product", value:p.precio, currency:"USD"});
   pintarPedido();
 }
 
@@ -456,7 +464,18 @@ pintarPedido();
 document.getElementById("catalogo").addEventListener("click", function(e){
   var b = e.target.closest(".sumar");
   if(b) alternar(b.dataset.id, b);
+  var a = e.target.closest(".pedir");
+  if(a){
+    var id = a.parentNode.querySelector(".sumar").dataset.id;
+    var p = P.filter(function(x){return x.id===id;})[0];
+    px("Contact", {content_ids:[id], content_name:nombreCompleto(p), content_type:"product", value:p.precio, currency:"USD"});
+  }
 });
+document.getElementById("p-pedir").addEventListener("click", function(){
+  var items = P.filter(function(p){return pedido.indexOf(p.id)>-1;});
+  px("InitiateCheckout", {content_ids:pedido.slice(), num_items:items.length, value:items.reduce(function(s,p){return s+p.precio;},0), currency:"USD"});
+});
+document.getElementById("ayuda").addEventListener("click", function(){ px("Contact", {content_name:"ayuda"}); });
 document.getElementById("p-vaciar").addEventListener("click", function(){
   pedido = []; guardar();
   document.querySelectorAll(".sumar").forEach(function(b){
