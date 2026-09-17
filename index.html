@@ -65,6 +65,10 @@ button{font:inherit;color:inherit}
 .antetitulo::before{content:"";width:26px;height:1.5px;background:var(--rosa-linea)}
 h1{font-weight:700;font-size:clamp(38px,9.5vw,68px);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
 h1 em{font-family:var(--serif);font-weight:500;font-style:italic;color:var(--coral);letter-spacing:-.01em}
+h1 em{display:inline-block;min-height:1em}
+#cursor{display:inline-block;width:.05em;height:.72em;background:var(--coral);margin-left:.07em;vertical-align:-.04em;animation:parpadeo 1.05s steps(1) infinite}
+#cursor.fin{display:none}
+@keyframes parpadeo{50%{opacity:0}}
 .bajada{font-size:16px;color:var(--moca-2);max-width:46ch;margin:18px 0 0}
 .bajada strong{color:var(--moca);font-weight:600}
 @media (min-width:760px){
@@ -224,7 +228,7 @@ body.con-pedido main{padding-bottom:130px}
     <div class="marca-agua" aria-hidden="true">순수</div>
     <div class="portada-txt">
       <p class="antetitulo">Catálogo · septiembre 2026</p>
-      <h1>Tu skincare, <em>en orden.</em></h1>
+      <h1 aria-label="Tu skincare, en orden. SUNSU SKIN.">Tu skincare,<br><em id="rota" aria-hidden="true">en orden.</em><span id="cursor" aria-hidden="true"></span></h1>
       <p class="bajada">Skincare coreano y aparatos faciales.</p>
     </div>
   </div>
@@ -485,6 +489,35 @@ function irAlAncla(){
   el.classList.add("resaltada");
   setTimeout(function(){ el.classList.remove("resaltada"); }, 2400);
 }
+/* Titular que se escribe solo */
+(function(){
+  var el = document.getElementById("rota");
+  var cur = document.getElementById("cursor");
+  if(!el) return;
+  var FRASES = ["en orden.", "coreano.", "en Caracas.", "SUNSU SKIN."];
+  var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(quieto){ el.textContent = FRASES[FRASES.length-1]; if(cur) cur.classList.add("fin"); return; }
+  var i = 0;
+  function borrar(cb){
+    var t = el.textContent;
+    if(!t.length) return cb();
+    el.textContent = t.slice(0, -1);
+    setTimeout(function(){ borrar(cb); }, 34);
+  }
+  function escribir(txt, cb){
+    var n = el.textContent.length;
+    if(n >= txt.length) return setTimeout(cb, 1500);
+    el.textContent = txt.slice(0, n + 1);
+    setTimeout(function(){ escribir(txt, cb); }, 58);
+  }
+  function paso(){
+    if(i >= FRASES.length - 1){ if(cur) cur.classList.add("fin"); return; }
+    i++;
+    borrar(function(){ escribir(FRASES[i], paso); });
+  }
+  setTimeout(paso, 1800);
+})();
+
 /* Buscador */
 function norm(t){ return String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
 var campoQ = document.getElementById("q");
