@@ -228,7 +228,7 @@ body.con-pedido main{padding-bottom:130px}
     <div class="marca-agua" aria-hidden="true">순수</div>
     <div class="portada-txt">
       <p class="antetitulo">Catálogo · septiembre 2026</p>
-      <h1 aria-label="Tu skincare, en orden. SUNSU SKIN.">Tu skincare,<br><em id="rota" aria-hidden="true">en orden.</em><span id="cursor" aria-hidden="true"></span></h1>
+      <h1 aria-label="Tu skincare, puro. SUNSU SKIN.">Tu skincare,<br><em id="rota" aria-hidden="true">puro.</em><span id="cursor" aria-hidden="true"></span></h1>
       <p class="bajada">Skincare coreano y aparatos faciales.</p>
     </div>
   </div>
@@ -494,7 +494,7 @@ function irAlAncla(){
   var el = document.getElementById("rota");
   var cur = document.getElementById("cursor");
   if(!el) return;
-  var FRASES = ["en orden.", "coreano.", "en Caracas.", "SUNSU SKIN."];
+  var FRASES = ["puro.", "coreano.", "sin apuro.", "SUNSU SKIN."];
   var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(quieto){ el.textContent = FRASES[FRASES.length-1]; if(cur) cur.classList.add("fin"); return; }
   var i = 0;
