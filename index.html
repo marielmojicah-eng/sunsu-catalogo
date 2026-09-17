@@ -116,6 +116,8 @@ main{padding-bottom:40px}
 .sumar:hover{border-color:var(--moca);background:var(--papel)}
 .sumar[aria-pressed="true"]{background:var(--coral-suave);border-color:var(--coral-suave);color:var(--moca)}
 .sumar svg{width:18px;height:18px}
+.resaltada{animation:pulso 2.2s ease-out 1}
+@keyframes pulso{0%,55%{box-shadow:0 0 0 3px var(--coral-suave)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
 
 .chip{position:absolute;top:10px;left:10px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--papel);color:var(--coral-texto);padding:4px 9px;border-radius:999px;z-index:2}
 
@@ -363,7 +365,7 @@ function tarjeta(p){
   var chip = p.stock===1 ? '<span class="chip">Última unidad</span>' : '';
   var enPedido = pedido.indexOf(p.id)>-1;
   var msg = "¡Hola! Me interesa el "+nombreCompleto(p)+" ($"+p.precio+"). ¿Está disponible?";
-  return '<article class="tarjeta'+(p.destacado?' destacado':'')+'">'+
+  return '<article class="tarjeta'+(p.destacado?' destacado':'')+'" id="'+p.id+'">'+
     '<div class="pozo'+(p.img?'':' etiqueta')+'">'+chip+foto+'</div>'+
     '<div class="ficha">'+
       (p.cinta?'<p class="f-cinta">'+esc(p.cinta)+'</p>':'')+
@@ -386,7 +388,7 @@ function tarjetaKit(p){
   var msg = "¡Hola! Me interesa el "+nombreCompleto(p)+" ($"+p.precio+"). ¿Está disponible?";
   var lista = p.incluye.map(function(x){return '<li>'+esc(x)+'</li>';}).join("") +
     (p.extra ? '<li class="kit-extra">+ '+esc(p.extra)+'</li>' : '');
-  return '<article class="kit">'+
+  return '<article class="kit" id="'+p.id+'">'+
     '<div class="kit-foto"><span class="chip">Pocas unidades</span>'+
       '<img src="'+p.img+'" alt="'+esc(nombreCompleto(p))+'" width="1200" height="900"></div>'+
     '<div class="kit-ficha">'+
@@ -460,6 +462,23 @@ function alternar(id, btn){
 
 pintarCatalogo();
 pintarPedido();
+
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
+function irAlAncla(){
+  var h = (location.hash||"").replace(/^#/,"").split(/[?&]/)[0];
+  if(!h) return;
+  var el = document.getElementById(h);
+  if(!el) return;
+  el.scrollIntoView({behavior:"auto", block:"start"});
+  el.classList.remove("resaltada");
+  void el.offsetWidth;
+  el.classList.add("resaltada");
+  setTimeout(function(){ el.classList.remove("resaltada"); }, 2400);
+}
+irAlAncla();
+setTimeout(irAlAncla, 400);
+window.addEventListener("load", irAlAncla);
+window.addEventListener("hashchange", irAlAncla);
 
 document.getElementById("catalogo").addEventListener("click", function(e){
   var b = e.target.closest(".sumar");
