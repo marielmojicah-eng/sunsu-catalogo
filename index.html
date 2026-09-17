@@ -44,7 +44,7 @@ fbq('track', 'PageView');
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
+html{scroll-behavior:smooth;scroll-padding-top:118px}
 body{margin:0;background:var(--crema);color:var(--moca);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -85,6 +85,19 @@ h1 em{font-family:var(--serif);font-weight:500;font-style:italic;color:var(--cor
 .paso-chip:hover{border-color:var(--moca-3);color:var(--moca)}
 .paso-chip.activo{background:var(--moca);border-color:var(--moca);color:var(--crema)}
 .paso-chip.activo span{color:var(--coral-suave)}
+.buscador{display:flex;align-items:center;gap:9px;max-width:1120px;margin:0 auto;padding:10px 18px 0}
+.buscador-caja{flex:1;display:flex;align-items:center;gap:8px;background:var(--papel);border:1px solid var(--linea);border-radius:999px;padding:0 14px;min-height:42px;transition:border-color .2s}
+.buscador-caja:focus-within{border-color:var(--moca-3)}
+.buscador-caja svg{width:16px;height:16px;flex:none;color:var(--moca-2)}
+#q{flex:1;border:0;background:transparent;font-family:inherit;font-size:16px;color:var(--moca);min-width:0;padding:8px 0}
+#q:focus{outline:none}
+#q::placeholder{color:var(--moca-2)}
+#q::-webkit-search-cancel-button{display:none}
+#q-limpiar{flex:none;border:0;background:transparent;cursor:pointer;font-size:19px;line-height:1;color:var(--moca-2);padding:0 2px}
+#q-limpiar:hover{color:var(--moca)}
+.oculto{display:none!important}
+.sin-resultados{max-width:1120px;margin:0 auto;padding:48px 18px 8px;text-align:center;color:var(--moca-2);font-size:15px}
+.sin-resultados a{color:var(--coral-texto);font-weight:600}
 
 /* Secciones */
 main{padding-bottom:40px}
@@ -229,10 +242,18 @@ body.con-pedido main{padding-bottom:130px}
 </header>
 
 <nav class="pasos" aria-label="Pasos de la rutina">
+  <div class="buscador">
+    <div class="buscador-caja">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Busca un producto o una marca" autocomplete="off" aria-label="Buscar un producto o una marca">
+      <button type="button" id="q-limpiar" hidden aria-label="Borrar la b&uacute;squeda">&times;</button>
+    </div>
+  </div>
   <div class="pasos-lista" id="pasos"></div>
 </nav>
 
 <main class="envoltura" id="catalogo"></main>
+<p class="sin-resultados" id="sin-resultados" hidden></p>
 
 <footer class="envoltura">
   <section class="cierre">
@@ -475,6 +496,86 @@ function irAlAncla(){
   el.classList.add("resaltada");
   setTimeout(function(){ el.classList.remove("resaltada"); }, 2400);
 }
+/* Buscador */
+function norm(t){ return String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
+var campoQ = document.getElementById("q");
+var btnQ = document.getElementById("q-limpiar");
+var avisoQ = document.getElementById("sin-resultados");
+var WA_BUSCA = "";
+var temporizadorQ;
+
+var PALABRAS_PASO = {
+  kits: "kit rutina completa combo",
+  limpia: "limpiador limpieza jabon espuma aceite desmaquillante doble limpieza",
+  prepara: "tonico hidratante ligero esencia",
+  trata: "tratamiento serum suero mascarilla contorno de ojos ojeras",
+  potencia: "aparato aparatos dispositivo masajeador maquina",
+  hidrata: "crema hidratante humectante",
+  protege: "protector solar bloqueador pantalla spf sol"
+};
+var PALABRAS_PRODUCTO = {
+  althea: "rojez rojeces irritacion piel sensible calmante",
+  cosrx: "retinol arrugas lineas antiedad",
+  aplb: "manchas glutation aclarante tono disparejo",
+  medipeel: "arrugas firmeza antiedad peptidos",
+  skintific: "contorno de ojos ojeras bolsas",
+  boj: "contorno de ojos ojeras ginseng",
+  aloe: "calmante quemadura sol alivio",
+  mqny: "balsamo barra labial",
+  "anua-mascarilla": "mascarilla parche hoja",
+  "anua-bruma": "bruma spray facial",
+  medicube: "booster aparato microcorriente led",
+  electro: "electroporador aparato radiofrecuencia",
+  "mas-led": "masajeador led luces cuello",
+  "mas-rec": "masajeador cuello recargable",
+  "mas-tensor": "masajeador tensor lifting"
+};
+var cacheTexto = {};
+function textoDe(p){
+  if(cacheTexto[p.id]) return cacheTexto[p.id];
+  var t = norm([p.marca, p.nombre, p.desc, p.medida, (p.incluye||[]).join(" "), p.cinta,
+    PALABRAS_PASO[p.paso]||"", PALABRAS_PRODUCTO[p.id]||""].join(" "));
+  cacheTexto[p.id] = t;
+  return t;
+}
+
+function buscar(){
+  var t = norm(campoQ.value).trim();
+  btnQ.hidden = t === "";
+  var hay = 0;
+  P.forEach(function(p){
+    var el = document.getElementById(p.id);
+    if(!el) return;
+    var pasa = t === "" || t.split(/\s+/).every(function(w){ return textoDe(p).indexOf(w) > -1; });
+    el.classList.toggle("oculto", !pasa);
+    if(pasa) hay++;
+  });
+  document.querySelectorAll("#catalogo .seccion").forEach(function(sec){
+    var vivas = sec.querySelectorAll(".tarjeta:not(.oculto), .kit:not(.oculto)").length;
+    sec.classList.toggle("oculto", t !== "" && vivas === 0);
+  });
+  document.getElementById("pasos").classList.toggle("oculto", t !== "");
+  if(t !== "" && hay === 0){
+    WA_BUSCA = campoQ.value.trim();
+    avisoQ.innerHTML = 'No tenemos nada con ese nombre por ahora. <a id="q-wa" href="'+wa("¡Hola! Busqué «"+WA_BUSCA+"» en el catálogo y no lo encontré. ¿Lo consiguen?")+'" target="_blank" rel="noopener">Escríbenos y te decimos si lo conseguimos.</a>';
+    avisoQ.hidden = false;
+  } else {
+    avisoQ.hidden = true;
+  }
+  clearTimeout(temporizadorQ);
+  if(t.length >= 3){
+    temporizadorQ = setTimeout(function(){
+      px("Search", {search_string: campoQ.value.trim(), content_type:"product", resultados: hay});
+    }, 900);
+  }
+}
+
+campoQ.addEventListener("input", buscar);
+btnQ.addEventListener("click", function(){ campoQ.value=""; buscar(); campoQ.focus(); });
+avisoQ.addEventListener("click", function(e){
+  if(e.target.closest("#q-wa")) px("Contact", {content_name:"busqueda_sin_resultado", search_string: WA_BUSCA});
+});
+
 irAlAncla();
 setTimeout(irAlAncla, 400);
 window.addEventListener("load", irAlAncla);
