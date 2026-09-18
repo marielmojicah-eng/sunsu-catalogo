@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="facebook-domain-verification" content="8lkcuhd3epb8v0ncw8nc00phci54bx" />
 <title>Catálogo SUNSU SKIN</title>
-<meta name="description" content="Skincare coreano y aparatos faciales en Caracas. Precios y pedidos por WhatsApp.">
+<meta name="description" content="Skincare coreano y aparatos faciales en Caracas. Pedidos por WhatsApp y pagas al recibir en Caracas.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://marielmojicah-eng.github.io/sunsu-catalogo/">
 <meta property="og:title" content="Catálogo SUNSU SKIN 순수">
@@ -124,6 +124,16 @@ main{padding-bottom:40px}
 .acciones{display:flex;gap:6px;margin-top:12px}
 .pedir{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 10px;border-radius:999px;background:var(--moca);color:var(--crema);text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .2s}
 .pedir:hover{background:#34291f}
+.pedir{background:#1A8D45;color:#fff}
+.pedir:hover{background:#157238}
+.pedir svg{width:17px;height:17px;flex:none}
+.pedir .largo{display:none}
+.destacado .pedir .corto,.kit .pedir .corto{display:none}
+.destacado .pedir .largo,.kit .pedir .largo{display:inline}
+@media (min-width:720px){.pedir .corto{display:none}.pedir .largo{display:inline}}
+.f-pago{margin:6px 0 0;font-size:11.5px;color:var(--moca-2)}
+.pago-recibir{display:inline-flex;align-items:center;gap:8px;margin:16px 0 0;padding:8px 14px;border-radius:999px;background:var(--papel,#fff);border:1px solid var(--rosa-linea,#e8a08a);font-size:14px;font-weight:600;color:var(--moca)}
+.pago-recibir svg{width:20px;height:20px;flex:none}
 .sumar{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--moca-3);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1;transition:background .2s,border-color .2s,color .2s}
 .sumar:hover{border-color:var(--moca);background:var(--papel)}
 .sumar[aria-pressed="true"]{background:var(--coral-suave);border-color:var(--coral-suave);color:var(--moca)}
@@ -231,6 +241,7 @@ body.con-pedido main{padding-bottom:130px}
       <p class="antetitulo">Catálogo · septiembre 2026</p>
       <h1 aria-label="Tu skincare, puro. SUNSU SKIN.">Tu skincare,<br><em id="rota" aria-hidden="true">puro.</em><span id="cursor" aria-hidden="true"></span></h1>
       <p class="bajada">Skincare coreano y aparatos faciales.</p>
+      <p class="pago-recibir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></svg>En Caracas pagas al recibir</p>
     </div>
   </div>
 </header>
@@ -257,6 +268,7 @@ body.con-pedido main{padding-bottom:130px}
       <a class="boton-grande" id="ayuda" target="_blank" rel="noopener"></a>
     </div>
     <dl class="letra-chica">
+      <div><dt>Pago</dt><dd>En Caracas pagas al recibir tu pedido.</dd></div>
       <div><dt>Precios</dt><dd>A la tasa euro del BCV del día.</dd></div>
       <div><dt>Originales</dt><dd>Productos coreanos originales.</dd></div>
       <div><dt>Envíos</dt><dd>Delivery en Caracas; MRW o Zoom al resto de Venezuela.</dd></div>
@@ -389,8 +401,9 @@ function tarjeta(p){
       '<p class="f-desc">'+esc(p.desc)+'</p>'+
       '<p class="f-medida">'+esc(p.medida)+'</p>'+
       '<p class="f-precio">$'+p.precio+'<small>USD</small></p>'+
+      '<p class="f-pago">Pagas al recibir en Caracas</p>'+
       '<div class="acciones">'+
-        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener">Pedir ahora</a>'+
+        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp: '+esc(nombreCompleto(p))+'">'+ICONO_WA+'<span class="corto">WhatsApp</span><span class="largo">Pedir por WhatsApp</span></a>'+
         '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
       '</div>'+
     '</div>'+
@@ -414,9 +427,9 @@ function tarjetaKit(p){
       '<p class="kit-precio">$'+p.precio+'<small>USD</small>'+
         (ahorro>=5 ? '<span class="kit-antes">Por separado <s>$'+p.separado+'</s></span><span class="kit-ahorro">Ahorras $'+ahorro+'</span>' : '')+
       '</p>'+
-      '<p class="kit-envio">Delivery gratis en Caracas.</p>'+
+      '<p class="kit-envio">Delivery gratis y pagas al recibir en Caracas.</p>'+
       '<div class="acciones">'+
-        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener">Pedir ahora</a>'+
+        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp: '+esc(nombreCompleto(p))+'">'+ICONO_WA+'<span class="corto">WhatsApp</span><span class="largo">Pedir por WhatsApp</span></a>'+
         '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
       '</div>'+
     '</div>'+
