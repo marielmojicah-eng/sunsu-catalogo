@@ -142,6 +142,9 @@ main{padding-bottom:40px}
 @keyframes pulso{0%,55%{box-shadow:0 0 0 3px var(--coral-suave)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
 
 .chip{position:absolute;top:10px;left:10px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--papel);color:var(--coral-texto);padding:4px 9px;border-radius:999px;z-index:2}
+.chip-agotado{background:var(--moca);color:var(--crema)}
+.tarjeta.agotada .pozo img{filter:grayscale(1);opacity:.65}
+.agotado-aviso{flex:1;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 10px;border-radius:999px;background:var(--papel);border:1px solid var(--linea);color:var(--moca-2);font-size:13.5px;font-weight:500}
 
 /* Etiqueta tipografica cuando no hay foto */
 .etiqueta{flex-direction:column;gap:8px;padding:14%;text-align:center;background:var(--pozo)}
@@ -354,7 +357,7 @@ var P = [
    desc:"3 ingredientes calmantes, 4 nutritivos y 5 relajantes. Pensada para piel sensible; va bien antes del maquillaje."},
   {id:"anua-guasha", paso:"hidrata", marca:"Anua", nombre:"Collagen Retinol Refining Gua Sha Cream", medida:"Con punta gua sha", precio:45, stock:4, img:"img/anua-guasha.jpg", oculto:true,
    desc:"Colágeno y retinol con una punta para masajear mientras la aplicas. De noche."},
-  {id:"anua-crema", paso:"hidrata", marca:"Anua", nombre:"PDRN Hyaluronic Acid 100 Moisturizing Cream", medida:"30 ml", precio:20, stock:2, img:"img/anua-crema.jpg",
+  {id:"anua-crema", paso:"hidrata", marca:"Anua", nombre:"PDRN Hyaluronic Acid 100 Moisturizing Cream", medida:"30 ml", precio:20, stock:0, agotado:true, img:"img/anua-crema.jpg",
    desc:"La crema hidratante de la línea PDRN, para cerrar la rutina del sérum y la bruma."},
   {id:"medipeel", paso:"hidrata", marca:"MEDIPEEL", nombre:"Peptide 9 Volume & Tension Tox Cream Pro", medida:"50 g", precio:28, stock:2, img:"img/medipeel.jpg",
    desc:"Péptidos, colágeno hidrolizado, ectoína y ácido hialurónico. Ayuda a que la piel se vea más firme."},
@@ -389,10 +392,16 @@ function tarjeta(p){
   var foto = p.img
     ? '<img src="'+p.img+'" alt="'+esc(nombreCompleto(p))+'" loading="lazy" width="600" height="600">'
     : '<span class="e-marca">'+esc(p.etiqueta[0])+'</span><span class="e-nombre">'+esc(p.etiqueta[1])+'</span><span class="e-linea"></span><span class="e-det">'+esc(p.etiqueta[2])+'</span>';
-  var chip = p.stock===1 ? '<span class="chip">Última unidad</span>' : '';
+  var chip = p.agotado ? '<span class="chip chip-agotado">Agotado</span>' : (p.stock===1 ? '<span class="chip">Última unidad</span>' : '');
   var enPedido = pedido.indexOf(p.id)>-1;
   var msg = "¡Hola! Me interesa el "+nombreCompleto(p)+" ($"+p.precio+"). ¿Está disponible?";
-  return '<article class="tarjeta'+(p.destacado?' destacado':'')+'" id="'+p.id+'">'+
+  var acciones = p.agotado
+    ? '<div class="acciones"><span class="agotado-aviso">Agotado por ahora</span></div>'
+    : '<div class="acciones">'+
+        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp: '+esc(nombreCompleto(p))+'">'+ICONO_WA+'<span class="corto">WhatsApp</span><span class="largo">Pedir por WhatsApp</span></a>'+
+        '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
+      '</div>';
+  return '<article class="tarjeta'+(p.destacado?' destacado':'')+(p.agotado?' agotada':'')+'" id="'+p.id+'">'+
     '<div class="pozo'+(p.img?'':' etiqueta')+'">'+chip+foto+'</div>'+
     '<div class="ficha">'+
       (p.cinta?'<p class="f-cinta">'+esc(p.cinta)+'</p>':'')+
@@ -402,10 +411,7 @@ function tarjeta(p){
       '<p class="f-medida">'+esc(p.medida)+'</p>'+
       '<p class="f-precio">$'+p.precio+'<small>USD</small></p>'+
       '<p class="f-pago">Pagas al recibir en Caracas</p>'+
-      '<div class="acciones">'+
-        '<a class="pedir" href="'+wa(msg)+'" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp: '+esc(nombreCompleto(p))+'">'+ICONO_WA+'<span class="corto">WhatsApp</span><span class="largo">Pedir por WhatsApp</span></a>'+
-        '<button class="sumar" type="button" data-id="'+p.id+'" aria-pressed="'+enPedido+'" aria-label="'+(enPedido?'Quitar del pedido':'Agregar al pedido')+': '+esc(nombreCompleto(p))+'">'+(enPedido?ICONO_OK:ICONO_MAS)+'</button>'+
-      '</div>'+
+      acciones+
     '</div>'+
   '</article>';
 }
