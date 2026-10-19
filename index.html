@@ -318,9 +318,9 @@ var P = [
   {id:"kit-booster", paso:"kits", kit:true, marca:"Rutina completa", nombre:"Kit completo con booster", pedidoNombre:"Kit completo con booster", precio:259, separado:280, img:"img/kit-con-booster.jpg", oculto:true,
    incluye:ANUA, extra:"Booster medicube AGE-R Mini",
    desc:"La rutina completa, de la doble limpieza a la crema, más el booster de medicube, que ayuda a que tu sérum y tu crema rindan más."},
-  {id:"kit-manchas", paso:"kits", kit:true, marca:"Kit con booster", nombre:"Kit Manchas", pedidoNombre:"Kit Manchas con booster", precio:259, separado:282, img:"img/kit-manchas.jpg",
-   incluye:["Aceite limpiador Anua","Gel limpiador COSRX","Sérum Niacinamide + TXA Anua","Bruma PDRN Anua","Crema medicube PDRN Pink","Protector SKIN1004 Sun Serum"], extra:"Booster medicube AGE-R Mini",
-   desc:"Niacinamida y ácido tranexámico para que las manchas se vean más claras, crema con niacinamida y PDRN, bruma hidratante y protector todos los días, más el booster."},
+  {id:"kit-manchas", paso:"kits", kit:true, marca:"Kit con booster", nombre:"Kit Manchas", pedidoNombre:"Kit Manchas con booster", precio:229, separado:246, img:"img/kit-manchas.jpg?v=2",
+   incluye:["Aceite limpiador Anua","Gel limpiador COSRX","Sérum Niacinamide + TXA Anua","Crema medicube PDRN Pink","Protector SKIN1004 Sun Serum"], extra:"Booster medicube AGE-R Mini",
+   desc:"Niacinamida y ácido tranexámico para que las manchas se vean más claras, crema con niacinamida y PDRN, y protector todos los días, más el booster."},
   {id:"kit-seca", paso:"kits", kit:true, marca:"Kit con booster", nombre:"Kit Piel seca o madura", pedidoNombre:"Kit Piel seca o madura con booster", precio:259, separado:280, img:"img/kit-seca.jpg",
    incluye:["Aceite limpiador Anua","Espuma limpiadora Anua","Sérum PDRN Anua","Bruma PDRN Anua","Crema MEDIPEEL Peptide 9","Protector SKIN1004 Sun Serum"], extra:"Booster medicube AGE-R Mini",
    desc:"Hidratación en capas con sérum y bruma PDRN, y péptidos con colágeno para que la piel se vea más firme, más el booster."},
@@ -336,7 +336,7 @@ var P = [
   {id:"anua-espuma", paso:"limpia", marca:"Anua", nombre:"Heartleaf Succinic Moisture Cleansing Foam", medida:"150 ml", precio:20, stock:2, img:"img/anua-espuma.jpg",
    desc:"Segundo paso: espuma suave que limpia sin dejar la piel tirante."},
 
-  {id:"cosrx-gel", paso:"limpia", marca:"COSRX", nombre:"Low pH Good Morning Gel Cleanser", medida:"150 ml", precio:20, stock:2,
+  {id:"cosrx-gel", paso:"limpia", marca:"COSRX", nombre:"Low pH Good Morning Gel Cleanser", medida:"150 ml", precio:20, stock:2, img:"img/cosrx-gel.jpg",
    etiqueta:["COSRX","Low pH","Gel cleanser"],
    desc:"Gel limpiador suave de pH bajo: limpia sin dejar la piel tirante. Segundo paso de la doble limpieza."},
 
@@ -354,7 +354,7 @@ var P = [
   {id:"boj", paso:"trata", marca:"Beauty of Joseon", nombre:"Revive Eye Serum: Ginseng + Retinal", medida:"30 ml", precio:19, stock:2, img:"img/boj.jpg",
    desc:"Ginseng y retinal para el contorno de ojos. Úsalo de noche."},
 
-  {id:"anua-txa", paso:"trata", marca:"Anua", nombre:"Niacinamide 10 + TXA 4 Serum", medida:"30 ml", precio:30, stock:3,
+  {id:"anua-txa", paso:"trata", marca:"Anua", nombre:"Niacinamide 10 + TXA 4 Serum", medida:"30 ml", precio:30, stock:3, img:"img/anua-txa.jpg",
    etiqueta:["Anua","Niacinamide 10","TXA 4"],
    desc:"Niacinamida 10%, ácido tranexámico 4% y arbutina. Ayuda a que las manchas y el tono se vean más parejos."},
 
@@ -367,7 +367,7 @@ var P = [
    desc:"Luz LED y vibración para cuello y rostro, con 7 modos y pantalla."},
   {id:"mas-rec", paso:"potencia", marca:"Aparato", nombre:"Masajeador de cuello recargable", medida:"Recargable", precio:20, stock:1, img:"img/masajeador-recargable.jpg",
    desc:"Para relajar cuello y mandíbula al final del día."},
-  {id:"mas-tensor", paso:"potencia", marca:"Aparato", nombre:"Masajeador tensor facial", medida:"Multifuncional", precio:20, stock:0, agotado:true, img:"img/masajeador-tensor.jpg",
+  {id:"mas-tensor", paso:"potencia", marca:"Aparato", nombre:"Masajeador tensor facial", medida:"Multifuncional", precio:20, stock:0, agotado:true, oculto:true, img:"img/masajeador-tensor.jpg",
    desc:"Masajeador facial compacto y fácil de usar, para tus cinco minutos de la mañana."},
 
   {id:"medicube-crema", paso:"hidrata", marca:"medicube", nombre:"PDRN Pink Collagen Capsule Cream", medida:"55 g", precio:30, stock:3, img:"img/medicube-crema.jpg",
@@ -386,7 +386,7 @@ var P = [
    etiqueta:["MQNY","Collagen Vita","Multi balm"],
    desc:"Bálsamo en barra con colágeno y vitaminas. Para llevar en la cartera y retocar."},
 
-  {id:"skin1004-sol", paso:"protege", marca:"SKIN1004", nombre:"Hyalu-Cica Water-Fit Sun Serum SPF50+", medida:"50 ml", precio:19, stock:3,
+  {id:"skin1004-sol", paso:"protege", marca:"SKIN1004", nombre:"Hyalu-Cica Water-Fit Sun Serum SPF50+", medida:"50 ml", precio:19, stock:3, img:"img/skin1004-sol.jpg",
    etiqueta:["SKIN1004","Hyalu-Cica","Sun Serum"],
    desc:"Protector en textura de sérum, ligero y sin rastro blanco. Hidrata con centella y ácido hialurónico."},
   {id:"purito", paso:"protege", marca:"Purito", nombre:"Daily Soft Touch Sunscreen SPF50+ PA++++", medida:"60 ml", precio:25, stock:1, img:"img/purito.jpg",
