@@ -131,8 +131,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* Garantías */
 .garantias{border-bottom:1px solid var(--linea)}
-.garantias-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px;padding:28px 0}
-@media (min-width:900px){.garantias-in{grid-template-columns:repeat(4,minmax(0,1fr));padding:34px 0}}
+.garantias-in{display:grid;grid-template-columns:1fr;gap:16px;padding:24px 0}
+@media (min-width:760px){.garantias-in{grid-template-columns:repeat(3,minmax(0,1fr));padding:34px 0}}
 .garantia{display:flex;gap:12px;align-items:flex-start}
 .garantia svg{width:30px;height:30px;color:var(--coral);flex:none}
 .garantia b{display:block;font-size:14.5px;font-weight:600;line-height:1.25}
@@ -236,18 +236,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .m5{font-weight:400;letter-spacing:.28em;font-size:13px!important}
 
 /* Ruta y originales */
-.ruta{list-style:none;margin:0;padding:0;display:grid;counter-reset:r}
-@media (min-width:760px){.ruta{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
-.ruta li{position:relative;padding:0 0 24px 50px;counter-increment:r}
-.ruta li::before{content:counter(r);position:absolute;left:0;top:-3px;width:34px;height:34px;border-radius:50%;background:var(--coral-suave);color:var(--coral-texto);font-weight:600;display:flex;align-items:center;justify-content:center}
-.ruta li::after{content:"";position:absolute;left:16.5px;top:36px;bottom:2px;width:1px;background:var(--linea)}
-.ruta li:last-child::after{display:none}
-@media (min-width:760px){
-  .ruta li{padding:50px 0 0}
-  .ruta li::after{left:44px;right:-20px;top:17px;bottom:auto;width:auto;height:1px}
-}
-.ruta b{display:block;font-size:16px;font-weight:600}
-.ruta span{display:block;font-size:14px;color:var(--tinta-2);margin-top:3px}
 .chequeo{display:grid;gap:12px}
 @media (min-width:760px){.chequeo{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
 .chequeo article{background:var(--gris);border-radius:10px;padding:22px 20px}
@@ -454,7 +442,6 @@ button{font:inherit;color:inherit;cursor:pointer}
       <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><b>100% originales</b><span>De tiendas coreanas autorizadas</span></div></div>
       <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></svg><div><b>Pagas al recibir</b><span>En Caracas, con el producto en tus manos</span></div></div>
       <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><div><b>Envíos a toda Venezuela</b><span>Delivery gratis en Caracas desde $100</span></div></div>
-      <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3a8.5 8.5 0 1 1 15.5-4.6z"/></svg><div><b>Asesoría gratis</b><span>Te ayudamos a elegir según tu piel</span></div></div>
     </div>
   </section>
 
@@ -499,15 +486,6 @@ button{font:inherit;color:inherit;cursor:pointer}
     <div class="marcas" id="lista-marcas"></div>
   </section>
 
-  <section class="sec env" id="ruta" aria-labelledby="t-ruta">
-    <div class="sec-cab"><div><h2 id="t-ruta">De Corea <em>a tu casa.</em></h2><p>No compramos en mercados ni a otros revendedores. Así llega cada producto:</p></div></div>
-    <ol class="ruta">
-      <li><b>Tiendas oficiales</b><span>Compramos en tiendas coreanas autorizadas como YesStyle y Olive Young.</span></li>
-      <li><b>Casillero en Miami</b><span>Llega sellado de fábrica a nuestro casillero.</span></li>
-      <li><b>Caracas</b><span>Lo recibimos y revisamos sellos y vencimiento.</span></li>
-      <li><b>Tus manos</b><span>Te llega sellado. En Caracas lo revisas y pagas.</span></li>
-    </ol>
-  </section>
 
   <section class="sec env" id="originales" aria-labelledby="t-originales">
     <div class="sec-cab"><div><h2 id="t-originales">Cómo saber que <em>es original.</em></h2><p>Hay muchas copias en Venezuela. Estas son las señales que puedes revisar tú misma en cualquier producto coreano, sea nuestro o no.</p></div></div>
@@ -552,7 +530,7 @@ button{font:inherit;color:inherit;cursor:pointer}
       <p>Skincare coreano 100% original y aparatos faciales. Caracas, Venezuela.</p>
     </div>
     <div><h3>Tienda</h3><ul><li><a href="#kits">Kits</a></li><li><a href="#tienda" data-filtro="todo">Skincare</a></li><li><a href="#tienda" data-filtro="potencia">Aparatos</a></li><li><a href="#marcas">Marcas</a></li></ul></div>
-    <div><h3>Ayuda</h3><ul><li><a href="#originales">Cómo saber si es original</a></li><li><a href="#ruta">De dónde vienen</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ul></div>
+    <div><h3>Ayuda</h3><ul><li><a href="#originales">Cómo saber si es original</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ul></div>
     <div><h3>Contacto</h3><ul><li><a id="wa-pie" target="_blank" rel="noopener">WhatsApp 0412-386-6227</a></li><li><a href="https://instagram.com/sunsuskin.ve" target="_blank" rel="noopener">Instagram @sunsuskin.ve</a></li><li>Pago: efectivo o pago móvil (tasa euro BCV)</li></ul></div>
   </div>
   <div class="env pie-firma"><span>© 2026 SUNSU SKIN · Caracas, Venezuela</span><span>순수 · pureza</span></div>
