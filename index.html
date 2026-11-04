@@ -110,6 +110,18 @@ button{font:inherit;color:inherit;cursor:pointer}
 .slide-img img{max-height:clamp(220px,40vw,480px);width:auto;object-fit:contain}
 .slide-img img.multi{mix-blend-mode:multiply}
 .slide-img img.redondo{border-radius:24px;max-height:clamp(220px,38vw,440px)}
+.slide.con-foto{align-items:stretch}
+.slide.con-foto .slide-in{display:flex;flex-direction:column;align-items:stretch}
+.slide-fondo{order:2;width:100%;height:280px;object-fit:cover;object-position:88% center}
+.slide.con-foto{display:flex;flex-direction:column}
+.slide.con-foto .slide-txt{padding-bottom:6px}
+@media (min-width:760px){.slide.con-foto .slide-in{grid-template-columns:1fr}.slide-fondo{height:380px}}
+@media (min-width:1100px){
+  .slide.con-foto{display:grid;align-items:center}
+  .slide-fondo{position:absolute;inset:0;height:100%;object-fit:contain;object-position:right center}
+  .slide.con-foto .slide-in{display:grid;grid-template-columns:1fr 1.1fr}
+  .slide.con-foto .slide-txt{padding:0}
+}
 .marca-agua{position:absolute;right:-2%;bottom:-8%;font-family:"Noto Sans KR",sans-serif;font-weight:300;font-size:clamp(160px,30vw,360px);line-height:1;color:rgba(255,255,255,.5);pointer-events:none;user-select:none}
 .banner-nav{position:absolute;right:16px;bottom:16px;display:flex;gap:8px;z-index:3}
 @media (min-width:900px){.banner-nav{right:40px;bottom:28px}}
@@ -394,7 +406,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 <main id="inicio">
   <section class="banner" aria-roledescription="carrusel" aria-label="Destacados">
     <div class="slides" id="slides">
-      <div class="slide" style="background:#EFE1D6">
+      <div class="slide con-foto" style="background:#E4CAC0">
+        <img class="slide-fondo" src="img/banner-kits.webp" alt="Productos de los kits de SUNSU SKIN" width="1672" height="941">
         <div class="env slide-in">
           <div class="slide-txt">
             <p class="slide-ante">Kits con booster</p>
@@ -402,11 +415,10 @@ button{font:inherit;color:inherit;cursor:pointer}
             <p>Limpieza, sérum, crema, protector y el booster medicube, armados según lo que quieres mejorar.</p>
             <a class="boton" href="#kits">Ver los kits</a>
           </div>
-          <div class="slide-img"><img class="redondo" src="img/kit-glass.jpg?v=2" alt="Kit Glass Skin de SUNSU SKIN" width="1200" height="900"></div>
         </div>
       </div>
-      <div class="slide" style="background:#F5ECEA">
-        <div class="marca-agua" aria-hidden="true">순수</div>
+      <div class="slide con-foto" style="background:#FAE8E9">
+        <img class="slide-fondo" src="img/banner-booster.webp" alt="medicube AGE-R Booster Pro Mini" width="1672" height="941" loading="lazy">
         <div class="env slide-in">
           <div class="slide-txt">
             <p class="slide-ante">medicube</p>
@@ -415,7 +427,6 @@ button{font:inherit;color:inherit;cursor:pointer}
             <span class="slide-precio"><b>$120</b> · pagas al recibir en Caracas</span><br>
             <a class="boton" href="#medicube">Ver el booster</a>
           </div>
-          <div class="slide-img"><img class="multi" src="img/medicube.jpg" alt="medicube AGE-R Booster Pro Mini" width="600" height="600"></div>
         </div>
       </div>
       <div class="slide" style="background:#F1EEE8">
