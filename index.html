@@ -7,7 +7,7 @@
 <title>Catálogo SUNSU SKIN</title>
 <meta name="description" content="Skincare coreano y aparatos faciales en Caracas. Pedidos por WhatsApp y pagas al recibir en Caracas.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://marielmojicah-eng.github.io/sunsu-catalogo/">
+<meta property="og:url" content="https://www.sunsuskinve.com/">
 <meta property="og:title" content="Catálogo SUNSU SKIN 순수">
 <meta property="og:description" content="Skincare coreano y aparatos faciales. Caracas y envíos a toda Venezuela.">
 <meta property="og:image" content="https://marielmojicah-eng.github.io/sunsu-catalogo/img/og.jpg">
@@ -228,13 +228,79 @@ body.con-pedido main{padding-bottom:130px}
 .kit-envio{margin:10px 0 0;font-size:12.5px;color:var(--moca-2)}
 .kit .acciones{margin-top:auto;padding-top:18px}
 
+/* Confianza */
+.cinta-sup{background:var(--moca);color:var(--crema);font-size:12px;letter-spacing:.04em;overflow:hidden;white-space:nowrap}
+.cinta-sup-pista{display:inline-flex;gap:34px;padding:8px 0;animation:desliza 28s linear infinite}
+.cinta-sup-pista span{display:inline-flex;align-items:center;gap:8px}
+.cinta-sup-pista span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--coral-suave)}
+@keyframes desliza{to{transform:translateX(-50%)}}
+.pilares{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+@media (min-width:760px){.pilares{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.pilar{background:var(--papel);border:1px solid var(--linea);border-radius:14px;padding:14px 14px 13px;display:flex;flex-direction:column;gap:6px}
+.pilar svg{width:24px;height:24px;color:var(--coral)}
+.pilar b{font-size:13.5px;font-weight:600;line-height:1.25}
+.pilar span{font-size:12px;color:var(--moca-2);line-height:1.4}
+.ver-original{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13.5px;font-weight:600;color:var(--coral-texto);text-decoration:none;position:relative;z-index:1}
+.ver-original:hover{text-decoration:underline;text-underline-offset:3px}
+.f-original{display:flex;align-items:center;gap:5px;margin:6px 0 0;font-size:11.5px;color:var(--moca-2)}
+.f-original svg{width:13px;height:13px;color:#1A8D45;flex:none}
+
+.bloque{padding:56px 0 8px}
+.bloque-cab{max-width:620px;margin-bottom:26px}
+.bloque-cab h2{margin:0;font-size:clamp(26px,6vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+.bloque-cab h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--coral)}
+.bloque-cab p{margin:10px 0 0;color:var(--moca-2);max-width:54ch}
+
+.ruta{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:r}
+@media (min-width:760px){.ruta{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}}
+.ruta li{position:relative;padding:0 0 22px 46px;counter-increment:r}
+.ruta li::before{content:counter(r);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--moca);color:var(--crema);font-family:var(--serif);font-style:italic;font-size:17px;display:flex;align-items:center;justify-content:center}
+.ruta li::after{content:"";position:absolute;left:15.5px;top:34px;bottom:2px;width:1px;background:var(--linea)}
+.ruta li:last-child::after{display:none}
+@media (min-width:760px){
+  .ruta li{padding:46px 0 0}
+  .ruta li::after{left:40px;right:-18px;top:16px;bottom:auto;width:auto;height:1px}
+}
+.ruta b{display:block;font-size:15px;font-weight:600}
+.ruta span{display:block;font-size:13px;color:var(--moca-2);margin-top:3px}
+
+.chequeo{display:grid;gap:12px}
+@media (min-width:720px){.chequeo{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.chequeo article{background:var(--papel);border:1px solid var(--linea);border-radius:16px;padding:18px;display:grid;grid-template-columns:44px 1fr;gap:4px 14px}
+.chequeo .ic{grid-row:span 2;width:44px;height:44px;border-radius:12px;background:var(--crema);display:flex;align-items:center;justify-content:center;color:var(--coral-texto);font-weight:700;font-size:13px;letter-spacing:.02em}
+.chequeo .ic svg{width:22px;height:22px}
+.chequeo h3{margin:0;font-size:15.5px;font-weight:600;line-height:1.3}
+.chequeo p{margin:0;font-size:13.5px;color:var(--moca-2)}
+.chequeo-nota{margin:16px 0 0;font-size:13px;color:var(--moca-2);max-width:62ch}
+
+.resenas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.resena{background:var(--papel);border:1px solid var(--linea);border-radius:16px;overflow:hidden;margin:0}
+.resena img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--pozo)}
+.resena figcaption{padding:12px 14px 14px;font-size:13.5px}
+.resena figcaption b{display:block;font-size:12px;font-weight:600;color:var(--moca-3);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+
+.preguntas{display:grid;gap:8px;max-width:760px}
+.preguntas details{background:var(--papel);border:1px solid var(--linea);border-radius:14px;padding:0 18px}
+.preguntas summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font-weight:600;font-size:15px;position:relative}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary::after{content:"+";position:absolute;right:0;top:12px;font-size:22px;font-weight:400;color:var(--coral)}
+.preguntas details[open] summary::after{content:"–"}
+.preguntas details p{margin:0 0 16px;color:var(--moca-2);font-size:14px}
+
 @media (prefers-reduced-motion:reduce){
+  .cinta-sup-pista{animation:none}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
 </style>
 </head>
 <body>
+<div class="cinta-sup" aria-label="100% originales de Corea. En Caracas pagas al recibir. Envíos a toda Venezuela.">
+  <div class="cinta-sup-pista" aria-hidden="true">
+    <span>100% originales de Corea</span><span>En Caracas pagas al recibir</span><span>Envíos a toda Venezuela</span><span>Asesoría gratis por WhatsApp</span>
+    <span>100% originales de Corea</span><span>En Caracas pagas al recibir</span><span>Envíos a toda Venezuela</span><span>Asesoría gratis por WhatsApp</span>
+  </div>
+</div>
 <header class="portada">
   <div class="envoltura">
     <div class="barra-sup">
@@ -243,11 +309,18 @@ body.con-pedido main{padding-bottom:130px}
     </div>
     <div class="marca-agua" aria-hidden="true">순수</div>
     <div class="portada-txt">
-      <p class="antetitulo">Catálogo · septiembre 2026</p>
+      <p class="antetitulo">Catálogo · noviembre 2026</p>
       <h1 aria-label="Tu skincare, puro. SUNSU SKIN.">Tu skincare,<br><em id="rota" aria-hidden="true">puro.</em><span id="cursor" aria-hidden="true"></span></h1>
       <p class="bajada">Skincare coreano y aparatos faciales.</p>
       <p class="pago-recibir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></svg>En Caracas pagas al recibir</p>
     </div>
+    <div class="pilares">
+      <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>100% originales</b><span>Comprados en tiendas oficiales coreanas, nunca a revendedores.</span></div>
+      <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></svg><b>Lo revisas y pagas</b><span>En Caracas pagas cuando el producto ya está en tus manos.</span></div>
+      <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg><b>Fecha de vencimiento</b><span>Te decimos el vencimiento de tu producto antes de que lo pidas.</span></div>
+      <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3a8.5 8.5 0 1 1 15.5-4.6z"/></svg><b>Te atiende una persona</b><span>Asesoría por WhatsApp para elegir según tu piel.</span></div>
+    </div>
+    <a class="ver-original" href="#originales">Cómo saber que tu producto es original &rarr;</a>
   </div>
 </header>
 
@@ -265,6 +338,57 @@ body.con-pedido main{padding-bottom:130px}
 <main class="envoltura" id="catalogo"></main>
 <p class="sin-resultados" id="sin-resultados" hidden></p>
 
+<section class="envoltura bloque" id="ruta" aria-labelledby="t-ruta">
+  <div class="bloque-cab">
+    <p class="antetitulo">De dónde viene</p>
+    <h2 id="t-ruta">De Corea <em>a tu casa.</em></h2>
+    <p>No compramos en mercados ni a otros revendedores. Así llega cada producto:</p>
+  </div>
+  <ol class="ruta">
+    <li><b>Tiendas oficiales</b><span>Compramos en tiendas coreanas autorizadas como YesStyle y Olive Young.</span></li>
+    <li><b>Casillero en Miami</b><span>Llega sellado de fábrica a nuestro casillero.</span></li>
+    <li><b>Caracas</b><span>Lo recibimos, revisamos sellos y vencimiento.</span></li>
+    <li><b>Tus manos</b><span>Te llega sellado. En Caracas lo revisas y pagas.</span></li>
+  </ol>
+</section>
+
+<section class="envoltura bloque" id="originales" aria-labelledby="t-originales">
+  <div class="bloque-cab">
+    <p class="antetitulo">Compra sin miedo</p>
+    <h2 id="t-originales">Cómo saber que <em>es original.</em></h2>
+    <p>Hay muchas copias en Venezuela. Estas son las señales que puedes revisar tú misma en cualquier producto coreano, sea nuestro o no.</p>
+  </div>
+  <div class="chequeo">
+    <article><span class="ic">880</span><h3>El código de barras empieza en 880</h3><p>Es el prefijo de los productos fabricados en Corea del Sur.</p></article>
+    <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg></span><h3>Sello holográfico con QR</h3><p>Marcas como Anua traen un sello que se escanea con la app HiddenTag y te confirma si es auténtico.</p></article>
+    <article><span class="ic">LOT</span><h3>Código de lote grabado</h3><p>Un código corto de letras y números, grabado en relieve en el envase, no impreso con tinta.</p></article>
+    <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/></svg></span><h3>Letras finas y limpias</h3><p>Las copias suelen tener letras más gruesas, colores apagados y textos con errores.</p></article>
+  </div>
+  <p class="chequeo-nota">¿Tienes dudas con algún producto? Escríbenos y te mandamos fotos del sello, el lote y el vencimiento antes de que lo pidas.</p>
+</section>
+
+<section class="envoltura bloque oculto" id="clientas" aria-labelledby="t-clientas">
+  <div class="bloque-cab">
+    <p class="antetitulo">Lo que dicen</p>
+    <h2 id="t-clientas">Clientas <em>reales.</em></h2>
+  </div>
+  <div class="resenas" id="resenas"></div>
+</section>
+
+<section class="envoltura bloque" id="preguntas" aria-labelledby="t-preguntas">
+  <div class="bloque-cab">
+    <p class="antetitulo">Preguntas frecuentes</p>
+    <h2 id="t-preguntas">Antes de <em>pedir.</em></h2>
+  </div>
+  <div class="preguntas">
+    <details><summary>¿Los productos son originales?</summary><p>Sí. Los compramos en tiendas coreanas autorizadas y llegan sellados de fábrica. Puedes revisar el código 880, el lote y el sello tú misma, y si quieres te mandamos fotos antes de pedir.</p></details>
+    <details><summary>¿Cómo pago?</summary><p>En efectivo o pago móvil a la tasa euro del BCV del día. En Caracas pagas al recibir, cuando ya tienes el producto en tus manos.</p></details>
+    <details><summary>¿Hacen envíos fuera de Caracas?</summary><p>Sí, a toda Venezuela por MRW o Zoom. En Caracas el delivery cuesta $3 y es gratis desde $100.</p></details>
+    <details><summary>¿Cuánto falta para que se venza?</summary><p>Pregúntanos por el producto que te interesa y te decimos la fecha exacta antes de que lo pidas.</p></details>
+    <details><summary>¿No sé qué producto es para mi piel?</summary><p>Escríbenos por WhatsApp, cuéntanos tu tipo de piel y lo que quieres mejorar, y te armamos la rutina.</p></details>
+  </div>
+</section>
+
 <footer class="envoltura">
   <section class="cierre">
     <div>
@@ -275,7 +399,7 @@ body.con-pedido main{padding-bottom:130px}
     <dl class="letra-chica">
       <div><dt>Pago</dt><dd>En Caracas pagas al recibir tu pedido.</dd></div>
       <div><dt>Precios</dt><dd>A la tasa euro del BCV del día.</dd></div>
-      <div><dt>Originales</dt><dd>Productos coreanos originales.</dd></div>
+      <div><dt>Originales</dt><dd>Sellados de fábrica, de tiendas coreanas autorizadas. <a href="#originales">Cómo verificarlo</a>.</dd></div>
       <div><dt>Envíos</dt><dd>Delivery en Caracas; MRW o Zoom al resto de Venezuela.</dd></div>
     </dl>
   </section>
@@ -397,6 +521,11 @@ var P = [
 
 var ICONO_WA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3a8.5 8.5 0 1 1 15.5-4.6z"/><path d="M9 8.6c.2 2.9 3 5.6 5.9 5.9l1.1-1.3-1.9-.9-.8.8c-1-.4-2.2-1.5-2.6-2.6l.8-.8-.9-1.9z" fill="currentColor" stroke="none"/></svg>';
 var ICONO_MAS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+var ICONO_SELLO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>';
+/* Reseñas reales: captura del DM o foto que mandó la clienta en img/clientas/. Nunca inventadas. */
+var RESENAS = [
+  // {img:"img/clientas/ana.jpg", texto:"Me llegó rapidísimo y sellado.", quien:"Ana · Kit Manchas"}
+];
 var ICONO_OK  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
@@ -430,6 +559,7 @@ function tarjeta(p){
       '<p class="f-desc">'+esc(p.desc)+'</p>'+
       '<p class="f-medida">'+esc(p.medida)+'</p>'+
       '<p class="f-precio">$'+p.precio+'<small>USD</small></p>'+
+      '<p class="f-original">'+ICONO_SELLO+'Original · sellado de fábrica</p>'+
       '<p class="f-pago">Pagas al recibir en Caracas</p>'+
       acciones+
     '</div>'+
@@ -518,6 +648,13 @@ function alternar(id, btn){
 
 pintarCatalogo();
 pintarPedido();
+if(RESENAS.length){
+  document.getElementById("resenas").innerHTML = RESENAS.map(function(r){
+    return '<figure class="resena">'+(r.img?'<img src="'+r.img+'" alt="Mensaje de una clienta" loading="lazy">':'')+
+      '<figcaption>'+esc(r.texto||"")+'<b>'+esc(r.quien||"")+'</b></figcaption></figure>';
+  }).join("");
+  document.getElementById("clientas").classList.remove("oculto");
+}
 
 if("scrollRestoration" in history) history.scrollRestoration = "manual";
 function irAlAncla(){
